@@ -93,6 +93,7 @@ public class Nachrichtenspeicher implements INachrichtenspeicher {
 
     @Override
     public void reload() throws Exception{
+        //Diese Stelle muss noch überarbeitet werden.
         File file = new File("C:\\Users\\Danny\\Desktop");
         FileInputStream fis = new FileInputStream(file);
         String line = "";
