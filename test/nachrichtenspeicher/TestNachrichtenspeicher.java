@@ -106,7 +106,14 @@ public class TestNachrichtenspeicher {
     }
 
 
-
+    /**
+     * delete elements in the list, although nothing is there
+     */
+    @Test(expected = NoDataException.class)
+    public void deleteAllMessages()throws Exception{
+        INachrichtenspeicher  in = this.getAnObjct();
+        in.removeAllElements();
+    }
 
 
 
