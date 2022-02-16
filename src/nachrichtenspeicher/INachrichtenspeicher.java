@@ -54,8 +54,9 @@ public interface INachrichtenspeicher {
 
     /**
      * create a new name of a file, where the content of the list will write into.
+     * @return
      */
-    void setFileName();
+    String setFileName();
 
 
     /**

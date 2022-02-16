@@ -73,16 +73,15 @@ public class Nachrichtenspeicher implements INachrichtenspeicher {
 
     @Override
     public void persist() throws Exception {
-        File file = new File("C:\\Users\\Danny\\Desktop"setFileName());
-        OutputStream outputStream;
-        outputStream = new FileOutputStream(file);
-        if(!file.exists()){
-            throw new FileNotFoundException();
-        }else if(list.size()==0){
+        if(list.size()==0){
             throw new NoDataException();
         }else{
-            setFileName();
+            String fileName = setFileName();
+            String path = "..\\" + fileName;
+            File file = new File(path);
             file.createNewFile();
+            OutputStream outputStream;
+            outputStream = new FileOutputStream(file);
             for(int i = 0; i<list.size(); i++){
                 String elementS = list.get(i);
                 outputStream.write(elementS.getBytes());
@@ -95,7 +94,7 @@ public class Nachrichtenspeicher implements INachrichtenspeicher {
     @Override
     public void reload() throws Exception{
         //Diese Stelle muss noch überarbeitet werden.
-        File file = new File("C:\\Users\\Danny\\Desktop");
+        File file = new File("..\\");
         FileInputStream fis = new FileInputStream(file);
         String line = "";
         if(!file.exists()){
@@ -114,10 +113,10 @@ public class Nachrichtenspeicher implements INachrichtenspeicher {
 
 
     @Override
-    public void setFileName() {
-        String namePart = "Nachrichtenspeicher_Inhalt";
+    public String setFileName() {
+        String namePart = "Nachrichtenspeicher_Inhalt_0";
         int nummer = 0;
         nummer++;
-        System.out.println(namePart+nummer);
+        return namePart+nummer;
     }
 }
