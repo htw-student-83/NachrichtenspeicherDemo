@@ -77,11 +77,10 @@ public class Nachrichtenspeicher implements INachrichtenspeicher {
             throw new NoDataException();
         }else{
             String fileName = setFileName();
-            String path = "..\\" + fileName;
-            File file = new File(path);
-            file.createNewFile();
+            File path = new File("..\\" + fileName);
+            path.createNewFile();
             OutputStream outputStream;
-            outputStream = new FileOutputStream(file);
+            outputStream = new FileOutputStream(path);
             for(int i = 0; i<list.size(); i++){
                 String elementS = list.get(i);
                 outputStream.write(elementS.getBytes());
