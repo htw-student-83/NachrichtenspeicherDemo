@@ -173,4 +173,13 @@ public class TestNachrichtenspeicher {
     public void toGetPersistentContentByNotAfile()throws Exception{
         in.reload();
     }
+
+    /**
+     * check will the method create a new filename.
+     */
+    @Test
+    public void getAfileName(){
+        String name = in.setFileName();
+        Assert.assertNotNull(name);
+    }
 }
