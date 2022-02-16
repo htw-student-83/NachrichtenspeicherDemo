@@ -94,7 +94,7 @@ public class Nachrichtenspeicher implements INachrichtenspeicher {
     @Override
     public void reload() throws Exception{
         //Diese Stelle muss noch überarbeitet werden.
-        File file = new File("..\\");
+        File file = new File("..\\Nachrichtenspeicher_Inhalt_01");
         FileInputStream fis = new FileInputStream(file);
         String line = "";
         if(!file.exists()){
