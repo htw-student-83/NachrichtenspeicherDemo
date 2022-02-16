@@ -74,7 +74,8 @@ public class Nachrichtenspeicher implements INachrichtenspeicher {
     @Override
     public void persist() throws Exception {
         File file = new File("C:\\Users\\Danny\\Desktop"setFileName());
-        FileOutputStream fis = new FileOutputStream(file);
+        OutputStream outputStream;
+        outputStream = new FileOutputStream(file);
         if(!file.exists()){
             throw new FileNotFoundException();
         }else if(list.size()==0){
@@ -84,9 +85,9 @@ public class Nachrichtenspeicher implements INachrichtenspeicher {
             file.createNewFile();
             for(int i = 0; i<list.size(); i++){
                 String elementS = list.get(i);
-                fis.write(Integer.parseInt(elementS));
+                outputStream.write(elementS.getBytes());
             }
-            fis.close();
+            outputStream.close();
         }
     }
 
