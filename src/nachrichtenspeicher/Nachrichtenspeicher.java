@@ -47,9 +47,10 @@ public class Nachrichtenspeicher implements INachrichtenspeicher {
         if(list.size()==0){
             throw new NoDataException();
         }else{
-            for(String element: list){
-                list.remove(element);
-            }
+            list.clear();
+            //for(int i = 0; i<list.size(); i++){
+            //    list.remove(i);
+            //}
         }
     }
 
