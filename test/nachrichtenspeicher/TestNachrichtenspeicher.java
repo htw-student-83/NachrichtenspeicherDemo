@@ -133,9 +133,6 @@ public class TestNachrichtenspeicher {
 
 
 
-
-
-
     /**
      * to check does the file have content from the list
      */

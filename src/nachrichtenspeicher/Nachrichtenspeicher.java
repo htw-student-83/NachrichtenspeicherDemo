@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Nachrichtenspeicher implements INachrichtenspeicher {
-    private int listSize = 0;
     private static final int DEFAULT_CAPACITY = 5;
     //private String element[];
     List<String> list = new ArrayList<>();
@@ -50,12 +49,6 @@ public class Nachrichtenspeicher implements INachrichtenspeicher {
             //    list.remove(i);
             //}
         }
-    }
-
-
-    @Override
-    public void set(int i, String message) {
-        list.add(i,message);
     }
 
 

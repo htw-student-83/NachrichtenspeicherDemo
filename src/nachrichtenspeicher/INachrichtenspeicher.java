@@ -21,14 +21,6 @@ public interface INachrichtenspeicher {
 
 
     /**
-     * move elements to a new position in the list
-     * @param i as index
-     * @param message as a message to the list
-     */
-    void set(int i, String message);
-
-
-    /**
      * get an element from the list
      * @param i is the index, where the element is that we want to get
      * @throws Exception
