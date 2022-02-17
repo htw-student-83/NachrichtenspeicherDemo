@@ -6,7 +6,6 @@ import java.util.List;
 
 public class Nachrichtenspeicher implements INachrichtenspeicher {
     private static final int DEFAULT_CAPACITY = 5;
-    //private String element[];
     List<String> list = new ArrayList<>();
 
     @Override
@@ -69,13 +68,12 @@ public class Nachrichtenspeicher implements INachrichtenspeicher {
             throw new NoDataException();
         }else{
             String fileName = setFileName();
-            File file = new File("C:\\Users\\Danny\\Desktop\\" + fileName+".txt");
+            File file = new File(fileName + ".txt");
             try {
                 file.createNewFile();
             }catch (Exception e){
                 e.printStackTrace();
             }
-
             OutputStream outputStream;
             outputStream = new FileOutputStream(file);
             for(int i = 0; i<list.size(); i++){
@@ -90,21 +88,25 @@ public class Nachrichtenspeicher implements INachrichtenspeicher {
     @Override
     public void reload() throws Exception{
         //Diese Stelle muss noch überarbeitet werden.
-        File file = new File("..\\Nachrichtenspeicher_Inhalt_01.txt");
-        FileInputStream fis = new FileInputStream(file);
-        String line = "";
-        if(!file.exists()){
-            throw new FileNotFoundException();
-        }else if(fis.read()==0){
-            throw new NoDataException();
-        }else{
+        InputStream inputStream = null;
+        File file = new File("Nachrichtenspeicher_Inhalt_01.txt");
+        int i;
+        char c;
+
+        try {
             removeAllElements();
-            while((fis.toString())!=null){
-                line = fis.toString();
-                for(int i = 0; i<line.length(); i++){
-                    list.add(i,line);
-                }
+            inputStream = new FileInputStream(file);
+            while((i = inputStream.read())!=-1){
+                c = (char) i;
+                System.out.println(c);
             }
+        }catch (FileNotFoundException e){
+            System.out.println("Die Datei ist leider nicht vorhanden.");
+        }catch (NoDataException e){
+            System.out.println("Die Datei enthält keine Daten zum Laden");
+        }
+        finally {
+            inputStream.close();
         }
     }
 
