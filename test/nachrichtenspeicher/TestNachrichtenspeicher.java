@@ -159,7 +159,7 @@ public class TestNachrichtenspeicher {
 
 
     /**
-     * to check doesn't the file have content to read out
+     * to check we can reload any content from the file
      */
     @Test
     public void toReadContentFromAfile() throws Exception {

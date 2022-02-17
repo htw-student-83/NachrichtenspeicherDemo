@@ -87,19 +87,19 @@ public class Nachrichtenspeicher implements INachrichtenspeicher {
 
     @Override
     public void reload() throws Exception{
-        //Diese Stelle muss noch überarbeitet werden.
         File file = new File("Nachrichtenspeicher_Inhalt_01.txt");
         InputStream inputStream = new FileInputStream(file);
         String element = "";
         try {
             removeAllElements();
-
             while((element = inputStream.toString()) != null){
                 list.add(element);
             }
-        }catch (FileNotFoundException | NoDataException e){
-            e.printStackTrace();
-        } finally {
+        }catch (FileNotFoundException e1){
+            e1.printStackTrace();
+        }catch (NoDataException e2){
+            e2.printStackTrace();
+        }finally {
             inputStream.close();
         }
     }
