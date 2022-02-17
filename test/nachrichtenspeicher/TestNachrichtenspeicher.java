@@ -106,6 +106,7 @@ public class TestNachrichtenspeicher {
     }
 
 
+
     /**
      * delete elements in the list, although nothing is there
      */
@@ -132,22 +133,22 @@ public class TestNachrichtenspeicher {
     }
 
 
-
     /**
-     * to check does the file have content from the list
+     * check, there are any content in the file, which we already loaded into it
      */
     @Test
-    public void toReadContentFromAfile() throws Exception {
+    public void outputStreamToAfile()throws Exception{
         INachrichtenspeicher  in = this.getAnObjct();
-        File file = new File("C:\\Users\\Danny\\Desktop\\Nachrichtenspeicher.txt");
-        file.createNewFile();
-        in.addAnElement("jdfösljdflsjdf");
-        in.addAnElement("jdfösljdflsjdf");
+        in.addAnElement("Hallo");
+        in.addAnElement("Hello");
+        in.addAnElement("Apfel");
         in.persist();
-        FileInputStream fis = new FileInputStream(file);
-        int isContent = fis.read();
-        Assert.assertTrue(isContent>0);
+        File file = new File("C:\\Users\\Danny\\Desktop\\Nachrichtenspeicher_Inhalt_01.txt");
+        FileInputStream fileInputStream = new FileInputStream(file);
+        int zahl = fileInputStream.read();
+        Assert.assertTrue(zahl!=0);
     }
+
 
 
 
@@ -163,31 +164,21 @@ public class TestNachrichtenspeicher {
         Assert.assertTrue(l>0);
     }
 
-
-
     /**
-     * check, the reaction of the system, if the file doesn't
-     * have any content to read out
+     * to check does the file have content from the list
      */
     @Test
-    public void toGetPersistentContentByEmptyFile()throws Exception{
-        INachrichtenspeicher  in = this.getAnObjct();
-        in.reload();
-        int l = in.getSize();
-        Assert.assertEquals(0,l);
+    public void toReadContentFromAfile() throws Exception {
+        INachrichtenspeicher in = this.getAnObjct();
+        File file = new File("...\\Nachrichtenspeicher_Inhalt_01.txt");
+        file.createNewFile();
+        in.addAnElement("jdfösljdflsjdf");
+        in.addAnElement("jdfösljdflsjdf");
+        in.persist();
+        FileInputStream fis = new FileInputStream(file);
+        int isContent = fis.read();
+        Assert.assertTrue(isContent > 0);
     }
-
-
-
-    /**
-     * check, the reaction of the system, if the file doesn't exist
-     */
-    @Test(expected = FileNotFoundException.class)
-    public void toGetPersistentContentByNotAfile()throws Exception{
-        INachrichtenspeicher  in = this.getAnObjct();
-        in.reload();
-    }
-
 
 
     /**
