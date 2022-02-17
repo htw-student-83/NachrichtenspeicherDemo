@@ -62,7 +62,6 @@ public class TestNachrichtenspeicher {
     @Test
     public void toSaveSixElements() throws Exception{
         INachrichtenspeicher  in = this.getAnObjct();
-        IListenerObjekt lo = this.getAnLObjct();
         in.addAnElement("Hallo");
         in.addAnElement("Hello");
         in.addAnElement("Apfel");
@@ -153,21 +152,21 @@ public class TestNachrichtenspeicher {
      * check, there are any content in the file, which we already loaded into it
      */
     @Test(expected = NoDataException.class)
-    public void outPutStreamToAfile2()throws Exception{
+    public void failtooutPutStreamToAfile()throws Exception{
         INachrichtenspeicher  in = this.getAnObjct();
         in.persist();
     }
 
 
     /**
-     * to check does the file have content to read out
+     * to check doesn't the file have content to read out
      */
     @Test
     public void toReadContentFromAfile() throws Exception {
         INachrichtenspeicher in = this.getAnObjct();
         in.reload();
-        int size = in.getSize();
-        Assert.assertEquals(0, size);
+        int l = in.getSize();
+        Assert.assertTrue(l>0);
     }
 
 
