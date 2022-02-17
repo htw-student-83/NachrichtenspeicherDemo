@@ -11,22 +11,23 @@ public class Nachrichtenspeicher implements INachrichtenspeicher {
     List<String> list = new ArrayList<>();
 
     @Override
-    public void addAnElement(String elementNeu)throws Exception {
+    public void addAnElement(String elementNeu) throws Exception{
         if(elementNeu.length() > 20){
             throw new ToLongStringException("Der neue String ist zu lang.");
         }else if(DEFAULT_CAPACITY == list.size()){
             ListenerObjekt listenerObjekt = new ListenerObjekt();
             //Überarbeiten!
             listenerObjekt.notifyOverWrite(getElement(0));
-            String elementS1 = getElement(0);
-            set(1,elementS1);
-            String elementS2 = getElement(1);
-            set(2,elementS2);
-            String elementS3 = getElement(2);
-            set(3,elementS3);
-            String elementS4 = getElement(3);
-            set(4,elementS4);
-            set(0, elementNeu);
+            String element0 = getElement(0);
+            String element1 = getElement(1);
+            String element2 = getElement(2);
+            String element3 = getElement(3);
+            removeAllElements();
+            list.add(0, elementNeu);
+            list.add(1, element0);
+            list.add(2, element1);
+            list.add(3, element2);
+            list.add(4, element3);
         }else{
             list.add(elementNeu);
         }
@@ -35,10 +36,7 @@ public class Nachrichtenspeicher implements INachrichtenspeicher {
 
     @Override
     public int getSize() {
-        for(int i = 0; i<list.size(); i++){
-            listSize++;
-        }
-        return listSize;
+        return list.size();
     }
 
 
