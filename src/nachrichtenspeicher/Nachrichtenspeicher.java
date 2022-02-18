@@ -1,5 +1,6 @@
 package nachrichtenspeicher;
 
+import javax.sound.midi.Soundbank;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -89,11 +90,14 @@ public class Nachrichtenspeicher implements INachrichtenspeicher {
     public void reload() throws Exception{
         File file = new File("Nachrichtenspeicher_Inhalt_01.txt");
         InputStream inputStream = new FileInputStream(file);
-        String element = "";
+        int i;
+        char c;
+
         try {
             removeAllElements();
-            while((element = inputStream.toString()) != null){
-                list.add(element);
+            while((i = inputStream.read()) != -1){
+                c = (char) i;
+                System.out.println(c);
             }
         }catch (FileNotFoundException e1){
             e1.printStackTrace();

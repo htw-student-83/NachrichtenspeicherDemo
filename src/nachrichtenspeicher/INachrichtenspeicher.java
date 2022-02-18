@@ -56,5 +56,4 @@ public interface INachrichtenspeicher {
      */
     void removeAllElements()throws Exception;
 
-
 }

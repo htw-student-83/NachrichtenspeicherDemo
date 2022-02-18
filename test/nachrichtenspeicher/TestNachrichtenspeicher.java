@@ -104,7 +104,6 @@ public class TestNachrichtenspeicher {
     }
 
 
-
     /**
      * delete elements in the list, although nothing is there
      */
@@ -113,7 +112,6 @@ public class TestNachrichtenspeicher {
         INachrichtenspeicher  in = this.getAnObjct();
         in.removeAllElements();
     }
-
 
 
 
@@ -159,15 +157,26 @@ public class TestNachrichtenspeicher {
 
 
     /**
-     * to check we can reload any content from the file
+     *
      */
     @Test
-    public void toReadContentFromAfile() throws Exception {
-        INachrichtenspeicher in = this.getAnObjct();
-        in.reload();
-        int l = in.getSize();
-        Assert.assertTrue(l>0);
+    public void fileIsAvalable() throws Exception {
+        File file = new File("Nachrichtenspeicher_Inhalt_01.txt");
+        boolean isAvalible = file.exists();
+        Assert.assertTrue(isAvalible);
     }
+
+
+    /**
+     *
+     */
+    @Test
+    public void toGetContentFromAfile() throws Exception {
+        INachrichtenspeicher  in = this.getAnObjct();
+        in.reload();
+    }
+
+
 
 
     /**
