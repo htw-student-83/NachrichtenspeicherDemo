@@ -157,7 +157,7 @@ public class TestNachrichtenspeicher {
 
 
     /**
-     *
+     * to check is the file, which we need to read something out is already created.
      */
     @Test
     public void fileIsAvalable() throws Exception {
@@ -168,15 +168,13 @@ public class TestNachrichtenspeicher {
 
 
     /**
-     *
+     * to check we can read content from the file
      */
     @Test
     public void toGetContentFromAfile() throws Exception {
         INachrichtenspeicher  in = this.getAnObjct();
         in.reload();
     }
-
-
 
 
     /**
