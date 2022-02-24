@@ -14,7 +14,6 @@ public class Nachrichtenspeicher implements INachrichtenspeicher {
             throw new ToLongStringException("Der neue String ist zu lang.");
         }else if(DEFAULT_CAPACITY == list.size()){
             ListenerObjekt listenerObjekt = new ListenerObjekt();
-            //Überarbeiten!
             listenerObjekt.notifyOverWrite(getElement(0));
             String element0 = getElement(0);
             String element1 = getElement(1);
@@ -44,9 +43,6 @@ public class Nachrichtenspeicher implements INachrichtenspeicher {
             throw new NoDataException();
         }else{
             list.clear();
-            //for(int i = 0; i<list.size(); i++){
-            //    list.remove(i);
-            //}
         }
     }
 
@@ -84,11 +80,10 @@ public class Nachrichtenspeicher implements INachrichtenspeicher {
         }
     }
 
-//Diese Methode muss noch überarbeitet werden
+
     @Override
     public void reload() throws Exception{
         File file = new File("Nachrichtenspeicher_Inhalt_01.txt");
-
         try {
             InputStream inputStream = new FileInputStream(file);
             int i;

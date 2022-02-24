@@ -26,6 +26,7 @@ public class TestNachrichtenspeicher {
         lo = this.getAnLObjct();
     }
 */
+
     /**
      * to save 5 elements successfully
      */
@@ -85,6 +86,29 @@ public class TestNachrichtenspeicher {
         Assert.assertEquals(5,l);
     }
 
+
+    /**
+     * to check is the size of the list unchangeable in
+     * case of saving more than 5 elements
+     */
+    @Test
+    public void toKeepSize2()throws Exception{
+        INachrichtenspeicher  in = this.getAnObjct();
+        in.addAnElement("Hallo");
+        in.addAnElement("Hello");
+        in.addAnElement("Apfel");
+        in.addAnElement("Birne");
+        in.addAnElement("Orange");
+        in.addAnElement("Traube");
+        in.addAnElement("Halerero");
+        in.addAnElement("Heerdllo");
+        in.addAnElement("Apfdfdfel");
+        in.addAnElement("Birdferne");
+        in.addAnElement("Orandfdfge");
+        in.addAnElement("Trauererbe");
+        int l = in.getSize();
+        Assert.assertEquals(5,l);
+    }
 
     /**
      * all elements in the system should be deleted
