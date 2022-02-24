@@ -15,9 +15,6 @@ public class TestNachrichtenspeicher {
         return new Nachrichtenspeicher();
     }
 
-    private IListenerObjekt getAnLObjct(){
-        return new ListenerObjekt();
-    }
 /*
     private INachrichtenspeicher in;
     private IListenerObjekt lo;
